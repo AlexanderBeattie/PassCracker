@@ -1,0 +1,49 @@
+import os
+import time
+import hashlib
+from pyfiglet import Figlet
+
+#big text
+f = Figlet(font='slant')
+word = "Lord BT         Pass Cracker"
+curr_word = ''
+for char in word:
+    #clears terminal
+    os.system('clear')
+    curr_word += char
+    print(f.renderText(curr_word))
+    time.sleep(0.1)
+
+
+
+flag = 0
+
+#enter filename
+wordlist = input("File name: ")
+
+#enter hash
+pass_hash = input("Enter md5 hash: ")
+
+
+#checks if file exists
+try:
+    pass_file = open('passlist.txt', 'r')
+except:
+    print("No file found")
+    quit()
+
+for word in pass_file:
+
+    enc_wrd = word.encode('utf-8')
+    digest = hashlib.md5(enc_wrd.strip()).hexdigest()
+
+    if digest == pass_hash: 
+        print("Password found")
+        print("Password is " + word)
+        flag = 1
+        break
+
+if flag == 0:
+    print("Password/passphrase is not in the list")
+
+    

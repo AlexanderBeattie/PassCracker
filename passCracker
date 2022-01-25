@@ -5,7 +5,7 @@ from pyfiglet import Figlet
 
 #big text
 f = Figlet(font='slant')
-word = "Lord BT         Pass Cracker"
+word = "Your Name's        Pass Cracker"
 curr_word = ''
 for char in word:
     #clears terminal
